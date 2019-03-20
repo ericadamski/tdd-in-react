@@ -1,0 +1,17 @@
+{
+  "name": "tdd-in-react",
+  "version": "1.0.0",
+  "description": "A conference talk to ForwardJS 2019",
+  "main": "index.js",
+  "repository": "git@github.com:ericadamski/tdd-in-react.git",
+  "author": "Eric Adamski <er.adamski@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^2.0.0",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^2.0.0"
+  },
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  }
+}

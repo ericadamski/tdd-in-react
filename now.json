@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "alias": "tdd-in-react",
+  "builds": [
+    { "src": "./presentation/deck.mdx", "use": "@now/mdx-deck" },
+    { "src": "./app/next.config.js", "use": "@now/next" }
+  ],
+  "public": true,
+  "github": {
+    "enabled": true,
+    "autoAlias": true
+  }
+}
