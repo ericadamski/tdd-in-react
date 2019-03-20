@@ -10,5 +10,8 @@
     "enabled": true,
     "autoAlias": true
   },
-  "routes": [{ "src": "/", "dest": "/app" }]
+  "routes": [
+    { "src": "/presentation", "dest": "/presentation/$1" },
+    { "src": "/(.*)", "dest": "/app/$1" }
+  ]
 }
