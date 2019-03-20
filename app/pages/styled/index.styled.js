@@ -31,5 +31,3 @@ export const Flash = styled.section`
         margin-right: 1rem;
     }
 `;
-
-// font-family: 'Alfa Slab One', cursive;

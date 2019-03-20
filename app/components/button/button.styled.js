@@ -18,6 +18,7 @@ export const Wrapper = styled.button`
   justify-content: center;
   ${props => props.circle && circle};
   transition: all 0.2s ease;
+  outline-color: ${props => props.color};
 
   &:hover {
     cursor: pointer;
