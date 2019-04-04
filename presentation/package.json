@@ -13,5 +13,9 @@
   },
   "scripts": {
     "start": "mdx-deck deck.mdx"
+  },
+  "dependencies": {
+    "styled-components": "^4.2.0",
+    "title": "^3.4.1"
   }
 }

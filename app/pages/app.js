@@ -27,7 +27,7 @@ export default class App extends Component {
   }
 
   fetchJoke() {
-    unfetch("https://icanhazdadjoke.com/", {
+    return unfetch("https://icanhazdadjoke.com/", {
       headers: { Accept: "text/plain" }
     })
       .then(res => res.text())

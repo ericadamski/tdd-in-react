@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Left from "react-ionicons/lib/MdArrowDropleft";
 import Right from "react-ionicons/lib/MdArrowDropright";
 import Colors from "../../utils/colors";
@@ -12,6 +12,8 @@ import {
 } from "./card.styled.js";
 
 export default function Card(props) {
+  const [complete, updateComplete] = useState(true);
+
   useEffect(() => {
     const handleKeypress = function handleKeypress(event) {
       if (event.key === "ArrowLeft") {
@@ -28,6 +30,16 @@ export default function Card(props) {
     };
   });
 
+  function onClick() {
+    const request = props.getNextJoke();
+    updateComplete(false);
+
+    if (request) {
+      request.then(() => updateComplete(true));
+      setTimeout(() => updateComplete(false), 100);
+    }
+  }
+
   return (
     <Wrapper>
       <Joke>{props.children}</Joke>
@@ -38,7 +50,7 @@ export default function Card(props) {
         <JokeCount>
           {props.currentJoke} of {props.jokeCount}
         </JokeCount>
-        <Next color={Colors.purple} onClick={props.getNextJoke}>
+        <Next color={Colors.purple} onClick={onClick}>
           <Right color={Colors.white} />
         </Next>
       </Footer>

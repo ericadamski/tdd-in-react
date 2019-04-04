@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Button from "../button";
 
 export const Wrapper = styled.div`
+  position: relative;
   width: 50vw;
   padding: 2rem;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
@@ -29,6 +30,7 @@ export const JokeCount = styled.p`
   flex-grow: 1;
   text-align: center;
   color: grey;
+  user-select: none;
 `;
 
 export const Next = styled(Button).attrs(() => ({ circle: true }))``;

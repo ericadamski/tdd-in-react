@@ -44,6 +44,9 @@ const GlobalStyles = createGlobalStyle`
     *, *::before, *::after {
       box-sizing: border-box;
     }
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden scroll;
     margin: 0;
     padding: 0
     background-color: ${Colors.white};
