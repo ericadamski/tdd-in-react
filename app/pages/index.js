@@ -23,11 +23,11 @@ function Home() {
             <CodeIcon color={Colors.white} />
           </Button>
         </Flash>
-        <Flash label="Full Screen">
+        {/* <Flash label="Full Screen">
           <Button circle color={Colors.purple} href="/app">
             <AddIcon color={Colors.white} />
           </Button>
-        </Flash>
+        </Flash> */}
         <Flash label="Github">
           <Button
             circle

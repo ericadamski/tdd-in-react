@@ -1,15 +1,20 @@
+import Strike from "./components/strike";
 import { Notes, Head, Image, Appear } from "mdx-deck";
+import { Invert } from "mdx-deck/layouts";
 
 <Head>
-  <title>My Presentation</title>
+  <title>TDD in React</title>
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@zealigan" />
-  <meta name="twitter:title" content="My Presentation" />
-  <meta name="twitter:description" content="A really great presentation" />
+  <meta name="twitter:title" content="TDD in React" />
+  <meta
+    name="twitter:description"
+    content="📺 A conference talk for ForwardJS 2019 about discovering React testing philosophies"
+  />
   <meta name="twitter:image" content="https://example.com/card.png" />
 </Head>
 
-# Hello! 👋
+# Hello! :wave:
 
 ---
 
@@ -62,9 +67,15 @@ import Link from "./components/link";
 
 # How to TDD in React
 
+<Notes>
+  How many of you were looking forward to hearing about this?
+  <br /> Anyone looking to get some super knowledgeble insight on how best to do
+  TDD?
+</Notes>
+
 ---
 
-# 😇
+# :angel:
 
 <Notes>
 Opps, I am not actually going to show you how to TDD
@@ -83,7 +94,11 @@ I really wanted to, but I just couldn't find something worthy of showing!
 
 # How to Think About TDD in React
 
-<Notes>but then that is way to long</Notes>
+<Notes>
+  but then that is way to long,.. noone would want to go to that. so HA tricked
+  you. please don't leave I think in the end this is actually really help with
+  HOW you tdd
+</Notes>
 
 ---
 
@@ -97,7 +112,7 @@ I really wanted to, but I just couldn't find something worthy of showing!
   }}
 >
   <h2 style={{ margin: 0 }}>T·D·D</h2>
-  <italics>/tee'dē'dē/</italics>
+  <i>/tee'dē'dē/</i>
   <ul style={{ listStyle: "decimal" }}>
     <li>
       <h4 style={{ margin: 0 }}>Test Driven Development</h4>
@@ -117,7 +132,7 @@ I really wanted to, but I just couldn't find something worthy of showing!
 
 ---
 
-# Research 📝
+# Last Minute Research :pencil:
 
 <ul>
   <Appear>
@@ -136,13 +151,17 @@ I really wanted to, but I just couldn't find something worthy of showing!
 
 ---
 
+# Side Note
+
+---
+
 # TDD doesn't make you a good developer
 
 <Notes>Conversly, not doing it doesn't make you a bad developer!</Notes>
 
 ---
 
-# Outline 🗺
+# Claims 🗺
 
 <ul>
   <Appear>
@@ -153,14 +172,454 @@ I really wanted to, but I just couldn't find something worthy of showing!
 
 <Notes>
   Talk about what I look for in talks, opinions, so that is what I looked for
-  and here are some opinions! get ready, please disagree with me! <br />
-  1. Things I learned while researching for this talk <br />
-  1. There are no rules only principles <br />
-  2. Testing categories are an academic notion <br />
-  3. Don't be too hard on yourself. <br />
-  2. What are the principles? <br />
-  3. Why no categories (unit, integration, e2e)? <br />
-  1. I think these actually get in the way of testing your application properly
+  and here are some opinions! get ready, please disagree with me!
+
+<br />
+
+what is going to guide what you test. ultimatly that will the question when we think about testing in React
+
 </Notes>
 
 ---
+
+# Question:
+
+## What Should We Test?
+
+<Notes>
+
+This talk is really all about...
+
+</Notes>
+
+---
+
+# How It All Started
+
+<Notes>
+  I wanted to do a talk on TDD, so I wanted to make sure that I had good quality
+  information to share with you and not just my naive opinions. So I went to the
+  internet and began searching<br/>
+
+as if people didn't know how to use the internet and I was the only way to communicat the good things people where saying about testing in react
+
+</Notes>
+
+---
+
+# I Like Two Things
+
+---
+
+# Opinions
+
+<Notes> Real strong ones </Notes>
+
+---
+
+# Rules
+
+<ul style={{ padding: 0 }}>
+  <Appear>
+    <li style={{ listStyle: "none", textAlign: "center" }}>
+      they are endlessly reproducible
+    </li>
+  </Appear>
+</ul>
+
+<Notes>
+
+I like math, I like rules, they are endlessly reproducible. Once you understand them you can repeat with little cognative involvement
+
+</Notes>
+
+---
+
+# I Wanted the _"Prettier"_ of TDD
+
+<Notes>
+  Who knows what prettier is? <br />I wanted an opinion that I could just
+  follow! GIMMY THE RULES
+</Notes>
+
+---
+
+# TDD without React
+
+<ul style={{ padding: 0 }}>
+  <Appear>
+    <li style={{ listStyle: "none", textAlign: "center" }}>It's hard.</li>
+  </Appear>
+</ul>
+
+<Notes>
+  I found extremely difficult to learn to test and practice TDD. But this is now
+  HTML/CSS, it's different
+</Notes>
+
+---
+
+<Image src="./images/1.carbon.svg" />
+
+<Notes>
+  we know exactly what we want the outcome to be. <br />
+  <br />
+  we know how we are developing it for
+  <br />
+  <br />
+  example 1.js
+</Notes>
+
+---
+
+## React Testing Feels like testing HTML/CSS
+
+Application structure and astetics
+
+<Notes>
+  Now don't get me wrong. There is nothing wrong with that! But we need to frame
+  that question a little differently
+</Notes>
+
+---
+
+# WAIT!
+
+<Notes>
+  React is obviously much more that just html and css but there other stuff is
+  just JS and we know how to test that, it has more defined rules! That type of
+  testing has been around for longer
+</Notes>
+
+---
+
+# Trial and Errror
+
+<Notes>
+  Someone here tell me how you developed in raw html css? how did you TDD that?{" "}
+  <br />
+  There really is no pattern, no structure? <br />
+  there is but it is assumed with time and experience
+  <br />
+  <br />
+  can you image writing an entire web application without looking at it? Just the
+  code!
+</Notes>
+
+---
+
+# React felt like _"Code"_
+
+<Notes>
+  This is going to seem like an odd statement, let me try and explain
+  <br />
+
+Let's go back to our sum function
+
+</Notes>
+
+---
+
+# Who Are We Creating This For?
+
+---
+
+<Image src="./images/1.carbon.svg" />
+
+<Notes>
+  Who are we creating this for?
+  <br />
+  <br /> there is only one interface this can get used.
+  <br />
+  <br />
+  unless we are talking about a calculator 🤔
+</Notes>
+
+---
+
+<Image src="./images/2.carbon.svg" />
+
+---
+
+<Image src="./images/3.carbon.svg" />
+
+<Notes>This even looks like code! So we should test it like code, right?</Notes>
+
+---
+
+# Who is the Audience?
+
+<Notes>
+  {" "}
+  go and look at the example app <br />
+  <br /> then go back to the class and ask what do we need to test for
+  developers?{" "}
+</Notes>
+
+---
+
+# Choose a Focus
+
+---
+
+# User / Developer
+
+<Notes>
+  Library
+  <br />
+  <br />
+  let's for the remainder of this talk use the Users as our focus, because we know
+  how to test code
+</Notes>
+
+---
+
+# Focus on the End User
+
+---
+
+<div style={{ width: "75vw" }}>
+  <Image
+    style={{ maxWidth: "100%", backgroundSize: "contain" }}
+    src="./images/4.twitter.png"
+  />
+</div>
+
+---
+
+# A More Holistic Approach to Testing
+
+<ul style={{ padding: 0 }}>
+  <Appear>
+    <li style={{ listStyle: "none", textAlign: "center" }}>
+      Principles over Rules
+    </li>
+  </Appear>
+</ul>
+
+---
+
+<div
+  style={{
+    width: "50vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flexStart",
+    textAlign: "left"
+  }}
+>
+  <h2 style={{ margin: 0 }}>ho·lis·tic</h2>
+  <i>/hōˈlistik/</i>
+  <ul style={{ listStyle: "decimal" }}>
+    <li>
+      <h4 style={{ margin: 0 }}>noun</h4>
+      <p>
+        a comprehension of the parts of something only by reference to the whole
+      </p>
+    </li>
+  </ul>
+</div>
+
+<Notes>
+  Only test pieces of your application as part of the whole application
+</Notes>
+
+---
+
+# Principles? :thinking_face:
+
+---
+
+<div
+  style={{
+    width: "50vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flexStart",
+    textAlign: "left"
+  }}
+>
+  <h2 style={{ margin: 0 }}>Prin·ci·ple</h2>
+  <i>/ˈprinsəpəl/</i>
+  <ul style={{ listStyle: "decimal" }}>
+    <li>
+      <h4 style={{ margin: 0 }}>noun</h4>
+      <p>
+        a fundamental truth or proposition that serves as the foundation for a
+        system of belief or behavior or for a chain of reasoning.
+      </p>
+    </li>
+  </ul>
+</div>
+
+---
+
+<div
+  style={{
+    width: "50vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flexStart",
+    textAlign: "left"
+  }}
+>
+  <h2 style={{ margin: 0 }}>Prin·ci·ple</h2>
+  <i>/ˈprinsəpəl/</i>
+  <ul style={{ listStyle: "decimal" }}>
+    <li>
+      <h4 style={{ margin: 0 }}>noun</h4>
+      <p>
+        a <Strike>fundamental truth or</Strike> proposition that serves as the
+        foundation for a system of <Strike>belief or</Strike> behavior or for a
+        chain of reasoning.
+      </p>
+    </li>
+  </ul>
+</div>
+
+<Notes>
+  A set of questions you can ask yourself when attempting to decided when/how to
+  test some React
+</Notes>
+
+---
+
+# Write Tests That Resemble The Way Your Software Is Used
+
+_ - Kent C. Dodds_
+
+<p style={{ fontSize: 14}}><i>\*</i>This is not a direct quote!</p>
+
+<Notes>Take a peak at the demo appliation</Notes>
+
+---
+
+# It Becomes Even Harder to TDD
+
+<Notes>
+  With that frame of mind
+  <br />
+  <br />
+  One thing that does help us do some TDD is...
+</Notes>
+
+---
+
+# Testing Types
+
+<ul>
+  <Appear>
+    <li>Unit</li>
+    <li>Integration</li>
+    <li>End-to-End</li>
+    <li>etc...</li>
+  </Appear>
+</ul>
+
+<Notes>Not really going into what these are</Notes>
+
+---
+
+<div
+  style={{
+    width: "50vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flexStart",
+    textAlign: "left"
+  }}
+>
+  <h2 style={{ margin: 0 }}>Prin·ci·ple</h2>
+  <i>/ˈprinsəpəl/</i>
+  <ul style={{ listStyle: "decimal" }}>
+    <li>
+      <h4 style={{ margin: 0 }}>noun</h4>
+      <p>
+        a <Strike>fundamental truth or</Strike> proposition that serves as the
+        foundation for a system of <Strike>belief or</Strike> behavior or for a
+        chain of reasoning.
+      </p>
+    </li>
+  </ul>
+</div>
+
+---
+
+# Chain of Reasoning
+
+---
+
+# My Experience
+
+<Notes>
+  {" "}
+  I used to think about what can be unit tested. I thought of that as my
+  philosophy, so I really couldn't find anything that WASN'T worth testing.
+  Everything passed my conditions so everything got unit tested and before I
+  knew it I was bogged down fixing and updating unit tests for ever iteration.
+  Testing took up 60% of the work and it was work I really didn't want to
+  do.Test burnout is real!
+</Notes>
+
+---
+
+# Test Burnout is Real!
+
+---
+
+<div style={{ width: "75vw" }}>
+  <Image
+    style={{ maxWidth: "100%", backgroundSize: "contain" }}
+    src="./images/5.twitter.png"
+  />
+</div>
+
+<Notes>
+  avoid the burnout <br />
+  <br />
+  there is too many good tweets <br />
+  <br />
+  open to interpretation
+</Notes>
+
+---
+
+<div
+  style={{
+    width: "50vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flexStart",
+    textAlign: "left"
+  }}
+>
+  <h2 style={{ margin: 0 }}>in·ter·pre·ta·tion</h2>
+  <i>/inˌtərprəˈtāSH(ə)n/</i>
+</div>
+
+---
+
+# Testing _"Categories"_ Are Fluid
+
+<Notes>it doesn't make for a good set of rules</Notes>
+
+---
+
+# Recap
+
+<ul>
+  <Appear>
+    <li>TDD IMO is for programmatic interfaces</li>
+    <li>
+      We should write tests in a <i>holistic</i> manner
+    </li>
+    <li>There are no rules, there are only principles</li>
+    <li>You, as a developer/team, can develop your own</li>
+  </Appear>
+</ul>
+
+<Notes>1. some might say APIs</Notes>
+
+---
+
+# Thank you :bow:
