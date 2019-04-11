@@ -11,7 +11,8 @@
     "autoAlias": true
   },
   "routes": [
-    { "src": "/presentation/main.js", "dest": "/presentation/main.js" },
+    { "src": "/main.js", "dest": "/presentation/main.js" },
+    { "src": "/images/(.*)", "dest": "/presentation/images/$1" },
     { "src": "/presentation/(.*)", "dest": "/presentation/index.html" },
     { "src": "/(.*)", "dest": "/app/$1" }
   ]
