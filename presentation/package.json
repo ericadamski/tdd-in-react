@@ -10,9 +10,11 @@
     "mdx-deck": "^2.0.0"
   },
   "scripts": {
+    "now-build": "mdx-deck build deck.mdx",
     "start": "mdx-deck deck.mdx"
   },
   "dependencies": {
+    "mdx-deck": "^2.0.0",
     "styled-components": "^4.2.0",
     "title": "^3.4.1"
   }

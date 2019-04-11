@@ -42,15 +42,19 @@ export default function Card(props) {
 
   return (
     <Wrapper>
-      <Joke>{props.children}</Joke>
+      <Joke role="joke">{props.children}</Joke>
       <Footer>
-        <Previous color={Colors.purple} onClick={props.getPreviousJoke}>
+        <Previous
+          role="previous"
+          color={Colors.purple}
+          onClick={props.getPreviousJoke}
+        >
           <Left color={Colors.white} />
         </Previous>
         <JokeCount>
           {props.currentJoke} of {props.jokeCount}
         </JokeCount>
-        <Next color={Colors.purple} onClick={onClick}>
+        <Next role="next" color={Colors.purple} onClick={onClick}>
           <Right color={Colors.white} />
         </Next>
       </Footer>
