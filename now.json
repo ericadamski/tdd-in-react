@@ -3,6 +3,7 @@
   "alias": "tdd-in-react",
   "builds": [
     { "src": "./presentation/deck.mdx", "use": "@now/mdx-deck" },
+    { "src": "./presentation/images/*.svg", "use": "@now/static" },
     { "src": "./app/next.config.js", "use": "@now/next" }
   ],
   "public": true,
