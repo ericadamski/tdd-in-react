@@ -1,3 +1,4 @@
+// #region mocks
 jest.mock(
   "unfetch",
   () =>
@@ -12,7 +13,7 @@ jest.mock(
       });
     }
 );
-
+// #endregion mocks
 import React from "react";
 import App from "../app";
 import {
@@ -31,7 +32,7 @@ describe("the app", () => {
 
     await waitForElement(() => getByRole("joke"));
 
-    const firstJoke = getByRole("joke").innerHTML;
+    const firstJoke = getByRole("joke").textContent;
 
     act(() => {
       fireEvent.click(getByRole("next"));
@@ -39,6 +40,6 @@ describe("the app", () => {
 
     await waitForElement(() => getByRole("joke"));
 
-    expect(firstJoke).not.toBe(getByRole("joke"));
+    expect(firstJoke).not.toBe(getByRole("joke").textContent);
   });
 });
